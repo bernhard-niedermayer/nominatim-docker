@@ -87,5 +87,8 @@ COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
+RUN useradd --create-home -s /bin/bash nominatim
+USER nominatim
+
 EXPOSE 5432
 EXPOSE 8080
